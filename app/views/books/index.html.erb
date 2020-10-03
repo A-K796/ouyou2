@@ -3,7 +3,9 @@
 
 		<h2>User info</h2>
 		<%= render 'users/profile', user: current_user %>
-
+		<%= form_for(@book) do |f| %>
+		<%= render 'layouts/errors', object: f.object %>
+		<% end %>
 		<h2>New book</h2>
 		<%= render 'books/form', book: @book %>
 
