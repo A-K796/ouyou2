@@ -1,0 +1,23 @@
+<body>
+  <h1>Follower Users</h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>image</th>
+        <th>name</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @followers.each do |followers| %>
+      <tr>
+        <td><%= attachment_image_tag(followers, :profile_image, :fill, 50, 50, fallback: "no-image-mini.jpg") %></td>
+        <td><%= followers.name %></td>
+        <td><%= followers.followings.count %></td>
+        <td><%= followers.followers.count %></td>
+        <td><%= link_to "show", user_path(followers) %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</body>
